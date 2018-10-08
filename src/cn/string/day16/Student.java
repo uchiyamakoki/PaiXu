@@ -1,6 +1,6 @@
 package cn.string.day16;
 
-public class Student {
+public class Student implements Comparable<Student>{
 
     private String name;
     private int age;
@@ -45,5 +45,12 @@ public class Student {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + age;
         return result;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        int num=this.age-o.age;
+        int num2=num==0 ? this.name.compareTo(o.name):num;
+        return num2;
     }
 }
